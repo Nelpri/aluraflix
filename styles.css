@@ -1,0 +1,373 @@
+ /* Paleta de colores */
+ :root {
+    --primary-color: #6200ea; /* Color principal */
+    --secondary-color: #03dac6; /* Color secundario */
+    --background-color: #121212; /* Fondo oscuro */
+    --surface-color: #1e1e1e; /* Superficie oscura */
+    --text-color: #87A2FF; /* Texto Azul claro */
+    --text-secondary-color: #b3b3b3; /* Texto secundario */
+  }
+  
+  /* Estilos generales */
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('./assets/video.jpg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    color: var(--secondary-color);
+  }
+  
+  .home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .header-left {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .header-button {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .header-button:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .header-right .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  /* Estilos para la imagen del video */
+  .video-thumbnail {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .video-thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  /* Banner de videos */
+  .video-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .banner-item {
+    text-align: center;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    border-radius: 8px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .banner-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .banner-item iframe {
+    width: 100%;
+    height: 180px;
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .banner-item h3 {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+  
+  /* Estilos para las imágenes en el banner */
+  .banner-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .banner-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .video-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .favorite-button,
+  .delete-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    color: var(--text-secondary-color);
+  }
+  
+  .favorite-button:hover,
+  .delete-button:hover {
+    transform: scale(1.1);
+    color: var(--secondary-color);
+  }
+  
+  .favorite-button.active {
+    color: var(--primary-color);
+  }
+  
+  .edit-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    color: var(--text-secondary-color);
+  }
+  
+  .edit-button:hover {
+    transform: scale(1.1);
+    color: var(--secondary-color);
+  }
+  
+  /* Vista ampliada del video */
+  .video-detail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .video-detail iframe {
+    width: 80%;
+    height: 80%;
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    color: var(--secondary-color);
+  }
+  
+  /* Formulario */
+  .video-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .video-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  .video-form input,
+  .video-form select,
+  .video-form textarea {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    color: var(--text-color);
+  }
+  
+  .video-form textarea {
+    resize: vertical;
+  }
+  
+  .form-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .form-buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-buttons button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  /* Estilos para el botón de categorías */
+  .categories-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .categories-button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  /* Estilos para el menú desplegable de categorías */
+  .categories-dropdown {
+    position: absolute;
+    background-color: var(--surface-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    z-index: 1000;
+  }
+  
+  /* Estilos para cada ítem de categoría */
+  .category-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .category-item:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }
+  
+  /* Estilos para el modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+  }
+  
+  .modal-close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .modal-close-button:hover {
+    color: var(--secondary-color);
+  }
+  
+  /* Búsqueda de videos */
+  /* Búsqueda de videos y selector de categorías */
+  .search-bar {
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .search-bar input,
+  .search-bar select {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+  }
+  
+  .search-bar select {
+    width: 150px; /* Ancho fijo para el selector de categorías */
+  }
+  
+  /* Notificaciones */
+  .notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease;
+  }
+  
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  } 
