@@ -59,7 +59,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <Router basename="https://github.com/Nelpri/aluraflix"> {/* Añade el basename para GitHub Pages */}
       {/* Notificación personalizada */}
       {notification && (
         <div className={`notification ${notification.type}`}>
